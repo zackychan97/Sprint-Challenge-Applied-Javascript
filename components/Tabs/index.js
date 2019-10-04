@@ -25,3 +25,17 @@ t.textContent = tLink;
 
 return daTabs;
 }
+
+
+const daAxioTopic = axios.get('https://lambda-times-backend.herokuapp.com/topics')
+.then(response => {
+    console.log(response);
+    trendingTopics = response.data.topics;
+
+    trendingTopics.forEach(topic => {
+        theTabsMon(topic);
+    });
+})
+.catch(error => {
+    console.log(error)
+})
