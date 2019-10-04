@@ -7,3 +7,21 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+
+function theTabsMon(tLink) {
+//elements
+    const t = document.createElement('div'),
+    daTabs = document.querySelector('.tabs .topics');
+
+//append
+daTabs.appendChild(t);
+
+//class
+t.classList.add('tab');
+
+//content
+t.textContent = tLink;
+
+return daTabs;
+}
