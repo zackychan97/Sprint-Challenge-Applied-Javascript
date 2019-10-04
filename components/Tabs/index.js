@@ -7,3 +7,35 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+
+function theTabsMon(tLink) {
+//elements
+    const t = document.createElement('div'),
+    daTabs = document.querySelector('.tabs .topics');
+
+//append
+daTabs.appendChild(t);
+
+//class
+t.classList.add('tab');
+
+//content
+t.textContent = tLink;
+
+return daTabs;
+}
+
+
+const daAxioTopic = axios.get('https://lambda-times-backend.herokuapp.com/topics')
+.then(response => {
+    console.log(response);
+    trendingTopics = response.data.topics;
+
+    trendingTopics.forEach(topic => {
+        theTabsMon(topic);
+    });
+})
+.catch(error => {
+    console.log(error)
+})
